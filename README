@@ -9,3 +9,15 @@ Using SDL 1.2:
 	libsdl-image1.2-dev
 	libsdl-mixer1.2-dev
 	libsdl-net1.2-dev
+
+
+Development Progress
+10/6/12 - After using a basic iteration on some points using a random number 
+	generator to give me a random distribution, I have found a few problems.
+	I didn't think about the need to store the points to prevent having to
+	run through the generation with each frame which is very costly. I also
+	didnt think about how difficult it will be to have a pretty picture
+	from this plane iteration. After poking around on the internet I think
+	the ansewer is going to be in writing a shader to do the rendering and
+	compiling the shader on the fly based on user input. I have never wrote
+	a shader before so that is what I must learn next.
