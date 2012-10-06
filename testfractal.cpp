@@ -57,12 +57,13 @@ void main_loop_function()
            glColor3ub(255, 000, 000); glVertex2f(-1,  1);
            glEnd();
          }
-       }
-   	SDL_GL_SwapBuffers();
+      }
+      SDL_GL_SwapBuffers();
       // Check keypresses
       if( key[SDLK_RIGHT] ){ angle-=0.5; }
       if( key[SDLK_LEFT ] ){ angle+=0.5; }
-     // if( key[SDLK_UP ] ){ zoom += 0.01; }
+      if( key[SDLK_UP ] ){ zoom *= 1.01; }
+      if( key[SDLK_DOWN ] ){ zoom *= 0.99; }
    }
 }
 
