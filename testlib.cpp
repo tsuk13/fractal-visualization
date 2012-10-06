@@ -5,6 +5,8 @@
 #define window_width  640
 #define window_height 480
 
+//Test Code obtained from wybiral at http://ubuntuforums.org/showthread.php?t=375425
+
 // Keydown booleans
 bool key[321];
 
