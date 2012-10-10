@@ -35,8 +35,8 @@ void main_loop_function()
       glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
       
       
-      int numPoints = 100; //number of points used in fractal
-      int deep = 100; //how many iterations of rules
+      int numPoints = 1000; //number of points used in fractal
+      int deep = 10; //how many iterations of rules
       srand(time(NULL));
       for(int i = 0; i<numPoints; i++){
          glLoadIdentity(); //setup our global rotation
@@ -53,10 +53,10 @@ void main_loop_function()
              glRotatef(-45, 0, 0, 1);
              glTranslatef(1, 0, 0);
            }
-           glBegin(GL_POINTS);
-           glColor3ub(255, 000, 000); glVertex2f(-1,  1);
-           glEnd();
          }
+         glBegin(GL_POINTS);
+         glColor3ub(255, 000, 000); glVertex2f(-1,  1);
+         glEnd();
       }
       SDL_GL_SwapBuffers();
       // Check keypresses
