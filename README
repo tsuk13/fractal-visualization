@@ -21,3 +21,14 @@ Development Progress
 	the ansewer is going to be in writing a shader to do the rendering and
 	compiling the shader on the fly based on user input. I have never wrote
 	a shader before so that is what I must learn next.
+
+10/10/12- Discovered a silly error where I was rendering a point at each depth
+        of the iteration causing major performance drop. After the correction
+        performance is at least resonble for this intial aprroach. I will 
+        continue looking at the Shader language to see if there is a better way
+        to use there. I have had the idea though that what might be best is to
+        generate all the points at the offset and store them, then use 
+        interpolation to give a general shape of the fractal. I am concerned at
+        the mathematics behind such a method but I do belive using the random
+        path frame by frame is eating unnecussary resources but I most likely 
+        need that for unlimited zooming. Exploration of these ideas are needed.
