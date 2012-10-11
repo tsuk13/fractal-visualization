@@ -36,7 +36,7 @@ void main_loop_function()
       
       
       int numPoints = 1000; //number of points used in fractal
-      int deep = 10; //how many iterations of rules
+      int deep = 15; //how many iterations of rules
       srand(time(NULL));
       for(int i = 0; i<numPoints; i++){
          glLoadIdentity(); //setup our global rotation
@@ -55,7 +55,7 @@ void main_loop_function()
            }
          }
          glBegin(GL_POINTS);
-         glColor3ub(255, 000, 000); glVertex2f(-1,  1);
+         glColor3ub(255, 255, 255); glVertex2f(-1,  1);
          glEnd();
       }
       SDL_GL_SwapBuffers();
