@@ -3,6 +3,9 @@
 #include <SDL/SDL.h>
 #include <cstdlib>
 #include <ctime>
+#include <iostream>
+using std::cout;
+using std::cin;
 
 #define window_width  640
 #define window_height 480
@@ -82,6 +85,17 @@ void GL_Setup(int width, int height)
 
 int main()
 {
+   //User Input prompt
+   bool more = true;
+   int scaleX;
+   while(more){
+     cout << "Input Scale Factor X (-1 to end input):";
+     cin >> scaleX;
+     if(scaleX == -1)
+       break;
+     cout << "\n" << scaleX;
+   }
+
    // Initialize SDL with best video mode
    SDL_Init(SDL_INIT_VIDEO);
    const SDL_VideoInfo* info = SDL_GetVideoInfo();	
