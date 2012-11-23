@@ -4,8 +4,13 @@
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
+#include <vector>
+#include <cassert>
+#include "TwoDStruct.h"
+
 using std::cout;
 using std::cin;
+using std::vector;
 
 #define window_width  640
 #define window_height 480
@@ -86,14 +91,26 @@ void GL_Setup(int width, int height)
 int main()
 {
    //User Input prompt
-   bool more = true;
-   int scaleX;
-   while(more){
-     cout << "Input Scale Factor X (-1 to end input):";
-     cin >> scaleX;
-     if(scaleX == -1)
-       break;
-     cout << "\n" << scaleX;
+   vector<TwoDStruct*> imageVec;
+   int numImages;
+   cout << "\nInput number of images: ";
+   cin >> numImages;
+   assert(numImages > 0);
+   for(int i = 1; i <= numImages; i++){
+     cout << "\nInput image " << i << "'s scale factor: ";
+     double s;
+     cin >> s;
+     cout << "Input image " << i << "'s clockwise rotation(degrees): ";
+     double r;
+     cin >> r;
+     cout << "Input image " << i << "'s translation in X: ";
+     double tX;
+     cin >> tX;
+     cout << "Input image " << i << "'s translation in Y: ";
+     double tY;
+     cin >> tY;
+     //input all this info into the structure object
+     imageVec.push_back(new TwoDStruct(s,r,tX,tY));
    }
 
    // Initialize SDL with best video mode
