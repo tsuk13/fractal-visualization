@@ -1,14 +1,19 @@
 CPP = g++
-CFLAGS = -Wall -g
+CFLAGS = -Wall -g -Werror
 SDLFLAGS = -lSDL -lGLU -lGL
 
-all: testlib testfractal fractalRender
+all: build/testlib build/testfractal build/fractalRender
 
-testlib: testlib.cpp
-	$(CPP) $(CFLAGS) -o testlib testlib.cpp $(SDLFLAGS)
+build/testlib: test/testlib.cpp
+	cd test; $(MAKE)
 
-testfractal: testfractal.cpp
-	$(CPP) $(CFLAGS) -o testfractal testfractal.cpp $(SDLFLAGS)
+build/testfractal: test/testfractal.cpp
+	cd test; $(MAKE)
 
-fractalRender: fractalRender.cpp
-	$(CPP) $(CFLAGS) -o fractalRender fractalRender.cpp $(SDLFLAGS)
+build/fractalRender: src/fractalRender.cpp
+	cd src; $(MAKE)
+
+clean:
+	rm -f build/*
+	cd test; $(MAKE) clean
+	cd src; $(MAKE) clean
