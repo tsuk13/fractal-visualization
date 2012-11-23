@@ -1,6 +1,6 @@
 #include "TwoDStruct.h"
 
-TwoDStruct::TwoDStruct(double s, double r, double tX, double tY){
+TwoDStruct::TwoDStruct(float s, float r, float tX, float tY){
   scale = s;
   rot = r;
   tranX = tX;
@@ -10,18 +10,18 @@ TwoDStruct::TwoDStruct(double s, double r, double tX, double tY){
 TwoDStruct::~TwoDStruct(){
 }
 
-double TwoDStruct::getScale(){
+float TwoDStruct::getScale(){
   return scale;
 }
 
-double TwoDStruct::getRotate(){
+float TwoDStruct::getRotate(){
   return rot;
 }
 
-double TwoDStruct::getTranX(){
+float TwoDStruct::getTranX(){
   return tranX;
 }
 
-double TwoDStruct::getTranY(){
+float TwoDStruct::getTranY(){
   return tranY;
 }

@@ -15,6 +15,9 @@ using std::vector;
 #define window_width  640
 #define window_height 480
 
+//Fractal Information
+vector<TwoDStruct*> imageVec;
+
 // Keydown booleans
 bool key[321];
 
@@ -51,16 +54,12 @@ void main_loop_function()
          glTranslatef(0,0, -10);
          glRotatef(angle, 0, 0, 1);
          glScalef(zoom, zoom, 0);
-         for(int j = 0; j<deep; j++){
-           if(rand()%2 == 0){
-             glScalef(.7071, .7071, 0); //this is our process to create fractal
-             glRotatef(45, 0, 0, 1);
-           }
-           else{
-             glScalef(.7071, .7071, 0);
-             glRotatef(-45, 0, 0, 1);
-             glTranslatef(1, 0, 0);
-           }
+         //this is our process to create fractal
+         for(int j = 0; j<deep; j++){ 
+           int r = rand() % imageVec.size();
+           glScalef(imageVec[r]->getScale(), imageVec[r]->getScale(), 0); 
+           glRotatef(imageVec[r]->getRotate(), 0, 0, 1);
+           glTranslatef(imageVec[r]->getTranX(),imageVec[r]->getTranY(),0);
          }
          glBegin(GL_QUADS);
          glColor3ub(255, 255, 255); glVertex2f(-size,  size);
@@ -91,23 +90,22 @@ void GL_Setup(int width, int height)
 int main()
 {
    //User Input prompt
-   vector<TwoDStruct*> imageVec;
    int numImages;
    cout << "\nInput number of images: ";
    cin >> numImages;
    assert(numImages > 0);
    for(int i = 1; i <= numImages; i++){
      cout << "\nInput image " << i << "'s scale factor: ";
-     double s;
+     float s;
      cin >> s;
      cout << "Input image " << i << "'s clockwise rotation(degrees): ";
-     double r;
+     float r;
      cin >> r;
      cout << "Input image " << i << "'s translation in X: ";
-     double tX;
+     float tX;
      cin >> tX;
      cout << "Input image " << i << "'s translation in Y: ";
-     double tY;
+     float tY;
      cin >> tY;
      //input all this info into the structure object
      imageVec.push_back(new TwoDStruct(s,r,tX,tY));
