@@ -12,4 +12,4 @@ TwoDStruct.o: TwoDStruct.h TwoDStruct.cpp
 	$(CPP) $(CFLAGS) -c TwoDStruct.cpp
 
 clean:
-	rm *.o
+	rm -f *.o

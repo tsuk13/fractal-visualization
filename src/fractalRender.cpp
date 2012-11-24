@@ -17,6 +17,9 @@ using std::vector;
 
 //Fractal Information
 vector<TwoDStruct*> imageVec;
+int numPoints = 10000; //number of points used in fractal
+int deep = 15; //how many iterations of rules
+double size = 2; // size of points
 
 // Keydown booleans
 bool key[321];
@@ -45,10 +48,7 @@ void main_loop_function()
    {
       glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
       
-      srand(131313);
-      int numPoints = 10000; //number of points used in fractal
-      int deep = 15; //how many iterations of rules
-      double size = 2; // size of points 
+      srand(131313); 
       for(int i = 0; i<numPoints; i++){
          glLoadIdentity(); //setup our global rotation
          glTranslatef(0,0, -10);
@@ -109,6 +109,20 @@ int main()
      cin >> tY;
      //input all this info into the structure object
      imageVec.push_back(new TwoDStruct(s,r,tX,tY));
+   }
+   cout << "\nCustom Render Settings?[y/n]";
+   char c;
+   cin >> c;
+   if( c == 'y' || c == 'Y'){
+     cout << "\nNumber of points[default: " << numPoints << "]: ";
+     cin >> numPoints;
+     assert(numPoints > 0);
+     cout << "\nDepth of points[default: " << deep << "]: ";
+     cin >> deep;
+     assert(deep > 0);
+     cout << "\nSize of points[default: " << size << "]: ";
+     cin >> size;
+     assert(size > 0);
    }
 
    // Initialize SDL with best video mode

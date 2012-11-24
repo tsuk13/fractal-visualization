@@ -12,4 +12,4 @@ $(BUILD)/testfractal: testfractal.cpp
 	$(CPP) $(CFLAGS) -o $(BUILD)/testfractal testfractal.cpp $(SDLFLAGS)
 
 clean:
-	rm *.o
+	rm -f *.o
