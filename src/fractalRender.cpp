@@ -53,15 +53,16 @@ void main_loop_function()
       srand(131313); 
       for(int i = 0; i<numPoints; i++){
          glLoadIdentity(); //setup our global rotation
-         glTranslatef(tranX,tranY, -10);
-         glRotatef(angle, 0, 0, 1);
+         glTranslatef(0,0,-10);
          glScalef(zoom, zoom, 0);
+         glTranslatef(tranX,tranY, 0);
+         glRotatef(angle, 0, 0, 1);
          //this is our process to create fractal
          for(int j = 0; j<deep; j++){ 
            int r = rand() % imageVec.size();
-           glScalef(imageVec[r]->getScale(), imageVec[r]->getScale(), 0); 
+           glScalef(imageVec[r]->getScale(), imageVec[r]->getScale(), 0);
            glRotatef(imageVec[r]->getRotate(), 0, 0, 1);
-           glTranslatef(imageVec[r]->getTranX(),imageVec[r]->getTranY(),0);
+           glTranslatef(imageVec[r]->getTranX(),imageVec[r]->getTranY(),0); 
          }
          glBegin(GL_QUADS);
          glColor3ub(255, 255, 255); glVertex2f(-size,  size);
@@ -76,10 +77,10 @@ void main_loop_function()
       if( key[SDLK_LEFT ] ){ angle += 2; }
       if( key[SDLK_UP ] ){ zoom *= 1.05; }
       if( key[SDLK_DOWN ] ){ zoom *= 0.95; }
-      if( key[SDLK_w] ){ tranY -= zoom * .05; } 
-      if( key[SDLK_s] ){ tranY += zoom * .05; }
-      if( key[SDLK_a] ){ tranX += zoom * .05; }
-      if( key[SDLK_d] ){ tranX -= zoom * .05; }
+      if( key[SDLK_w] ){ tranY -= .02; } 
+      if( key[SDLK_s] ){ tranY += .02; }
+      if( key[SDLK_a] ){ tranX += .02; }
+      if( key[SDLK_d] ){ tranX -= .02; }
    }
 }
 
