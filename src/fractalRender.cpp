@@ -44,6 +44,8 @@ void main_loop_function()
 {
    float angle = 0;
    float zoom = 1;
+   float tranX = 0;
+   float tranY = 0;
    while( events() )
    {
       glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -51,7 +53,7 @@ void main_loop_function()
       srand(131313); 
       for(int i = 0; i<numPoints; i++){
          glLoadIdentity(); //setup our global rotation
-         glTranslatef(0,0, -10);
+         glTranslatef(tranX,tranY, -10);
          glRotatef(angle, 0, 0, 1);
          glScalef(zoom, zoom, 0);
          //this is our process to create fractal
@@ -70,10 +72,14 @@ void main_loop_function()
       }
       SDL_GL_SwapBuffers();
       // Check keypresses
-      if( key[SDLK_RIGHT] ){ angle-=0.5; }
-      if( key[SDLK_LEFT ] ){ angle+=0.5; }
-      if( key[SDLK_UP ] ){ zoom *= 1.01; }
-      if( key[SDLK_DOWN ] ){ zoom *= 0.99; }
+      if( key[SDLK_RIGHT] ){ angle -= 2; }
+      if( key[SDLK_LEFT ] ){ angle += 2; }
+      if( key[SDLK_UP ] ){ zoom *= 1.05; }
+      if( key[SDLK_DOWN ] ){ zoom *= 0.95; }
+      if( key[SDLK_w] ){ tranY -= zoom * .05; } 
+      if( key[SDLK_s] ){ tranY += zoom * .05; }
+      if( key[SDLK_a] ){ tranX += zoom * .05; }
+      if( key[SDLK_d] ){ tranX -= zoom * .05; }
    }
 }
 
