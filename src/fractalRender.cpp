@@ -61,7 +61,7 @@ void main_loop_function()
          for(int j = 0; j<deep; j++){ 
            int r = rand() % imageVec.size();
            glScalef(imageVec[r]->getScale(), imageVec[r]->getScale(), 0);
-           glRotatef(imageVec[r]->getRotate(), 0, 0, 1);
+           glRotatef(-imageVec[r]->getRotate(), 0, 0, 1);
            glTranslatef(imageVec[r]->getTranX(),imageVec[r]->getTranY(),0); 
          }
          glBegin(GL_QUADS);
@@ -73,14 +73,14 @@ void main_loop_function()
       }
       SDL_GL_SwapBuffers();
       // Check keypresses
-      if( key[SDLK_RIGHT] ){ angle -= 2; }
-      if( key[SDLK_LEFT ] ){ angle += 2; }
+      //if( key[SDLK_RIGHT] ){ angle -= 2; } //dont want to use rotate for 2D
+      //if( key[SDLK_LEFT ] ){ angle += 2; } 
       if( key[SDLK_UP ] ){ zoom *= 1.05; }
       if( key[SDLK_DOWN ] ){ zoom *= 0.95; }
-      if( key[SDLK_w] ){ tranY -= .02; } 
-      if( key[SDLK_s] ){ tranY += .02; }
-      if( key[SDLK_a] ){ tranX += .02; }
-      if( key[SDLK_d] ){ tranX -= .02; }
+      if( key[SDLK_w] ){ tranY -= .2/zoom; } 
+      if( key[SDLK_s] ){ tranY += .2/zoom; }
+      if( key[SDLK_a] ){ tranX += .2/zoom; }
+      if( key[SDLK_d] ){ tranX -= .2/zoom; }
    }
 }
 
