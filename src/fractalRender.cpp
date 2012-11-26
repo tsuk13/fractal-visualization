@@ -68,10 +68,10 @@ void main_loop_function()
          
          //Draw
          glBegin(GL_QUADS);
-         glColor3ub(255, 255, 255); glVertex2f(-size,  size);
-         glColor3ub(255, 255, 255); glVertex2f( size,  size);
+         glColor3ub(255, 255, 255); glVertex2f( 0,  0);
+         glColor3ub(255, 255, 255); glVertex2f( size,  0);
          glColor3ub(255, 255, 255); glVertex2f( size, -size);
-         glColor3ub(255, 255, 255); glVertex2f(-size, -size);
+         glColor3ub(255, 255, 255); glVertex2f( 0, -size);
          glEnd();
       }
       SDL_GL_SwapBuffers();
