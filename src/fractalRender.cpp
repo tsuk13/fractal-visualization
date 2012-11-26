@@ -150,10 +150,10 @@ void main_loop_function()
       }
       //threeD specfic controls
       else{
-        if( key[SDLK_w] ){ rotX -= .2; } 
-        if( key[SDLK_s] ){ rotX += .2; }
-        if( key[SDLK_a] ){ rotY += .2; }
-        if( key[SDLK_d] ){ rotY -= .2; }
+        if( key[SDLK_w] ){ rotX -= 1; } 
+        if( key[SDLK_s] ){ rotX += 1; }
+        if( key[SDLK_a] ){ rotY += 1; }
+        if( key[SDLK_d] ){ rotY -= 1; }
       }
    }
 }
