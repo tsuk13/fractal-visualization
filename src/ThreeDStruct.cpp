@@ -1,21 +1,42 @@
 #include "ThreeDStruct.h"
 
-ThreeDStruct::ThreeDStruct(float s, float r, float tX, float tY){
-  scale = s;
-  rot = r;
+ThreeDStruct::ThreeDStruct(float sX, float sY, float sZ,  float rX, float rY, float rZ, float tX, float tY, float tZ){
+  scaleX = sX;
+  scaleY = sY;
+  scaleZ = sZ;
+  rotX = rX;
+  rotY = rY;
+  rotZ = rZ;
   tranX = tX;
   tranY = tY;
+  tranZ = tZ;
 }
 
 ThreeDStruct::~ThreeDStruct(){
 }
 
-float ThreeDStruct::getScale(){
-  return scale;
+float ThreeDStruct::getScaleX(){
+  return scaleX;
 }
 
-float ThreeDStruct::getRotate(){
-  return rot;
+float ThreeDStruct::getScaleY(){
+  return scaleY;
+}
+
+float ThreeDStruct::getScaleZ(){
+  return scaleZ;
+}
+
+float ThreeDStruct::getRotateX(){
+  return rotX;
+}
+
+float ThreeDStruct::getRotateY(){
+  return rotY;
+}
+
+float ThreeDStruct::getRotateZ(){
+  return rotZ;
 }
 
 float ThreeDStruct::getTranX(){
@@ -23,5 +44,9 @@ float ThreeDStruct::getTranX(){
 }
 
 float ThreeDStruct::getTranY(){
+  return tranY;
+}
+
+float ThreeDStruct::getTranZ(){
   return tranY;
 }

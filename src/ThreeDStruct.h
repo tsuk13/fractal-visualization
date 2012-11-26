@@ -2,16 +2,26 @@
 #define __THREEDSTRUCT_H__
 class ThreeDStruct{
   private:
-    float scale;
-    float rot;
+    float scaleX;
+    float scaleY;
+    float scaleZ;
+    float rotX;
+    float rotY;
+    float rotZ;
     float tranX;
     float tranY;
+    float tranZ;
   public:
-    ThreeDStruct(float s, float r, float tX, float tY);
+    ThreeDStruct(float sX, float sY, float sZ,  float rX, float rY, float rZ, float tX, float tY, float tZ);
     ~ThreeDStruct();
-    float getScale();
-    float getRotate();
+    float getScaleX();
+    float getScaleY();
+    float getScaleZ();
+    float getRotateX();
+    float getRotateY();
+    float getRotateZ();
     float getTranX();
     float getTranY();
+    float getTranZ();
 };
 #endif
